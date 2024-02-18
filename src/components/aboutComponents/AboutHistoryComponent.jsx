@@ -1,7 +1,7 @@
 import React from 'react';
 import Sign from '../../assets/about-images/sign.png';
 import Img1 from '../../assets/about-images/history-img1.jpg';
-import Img2 from '../../assets/about-images/history-img1.jpg';
+import Img2 from '../../assets/about-images/history-img2.jpg';
 
 function AboutHistoryComponent() {
     return (

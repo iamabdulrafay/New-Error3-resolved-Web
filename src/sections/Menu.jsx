@@ -1,14 +1,20 @@
-import React from 'react'
-import SectionHead from '../components/SectionHead'
+import React, { useContext, useEffect, useRef } from 'react';
+import SectionHead from '../components/SectionHead';
 import MenuListItems from '../components/menuComponents/MenuListItems';
 import MenuVariants from '../components/menuComponents/MenuVariants';
+import { RefContext } from '../contexts/RefContext';
 
 const sectionTitle = "Our Menu";
 const sectionDescription = `Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.`;
 
 function Menu() {
+    const menuRef = useRef(null);
+    const { setMenuRef } = useContext(RefContext);
+    useEffect(() => {
+        setMenuRef(menuRef);
+    }, [])
     return (
-        <section id="menu-section" className="text-gray-600 body-font">
+        <section ref={menuRef} id="menu-section" className="text-gray-600 body-font">
             <div className="container mx-auto flex px-5 py-24 items-center justify-center flex-col">
 
                 <SectionHead sectionTitle={sectionTitle} sectionDescription={sectionDescription} titleTextClr={'gray-900'} />

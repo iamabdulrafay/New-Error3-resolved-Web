@@ -8,7 +8,6 @@ function BookingResponse({ appTitle, scrollMethod }) {
 
     const handleClickToGoBack = (e) => {
         navigate('/');
-        scrollMethod();
     }
     return (
         <section id='bookingResponse-section' className="text-[#fff] font-rubic h-screen body-font relative overflow-hidden">

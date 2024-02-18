@@ -8,19 +8,21 @@ import Team from '../sections/Team';
 import Statistics from '../sections/Statistics';
 import Gallery from '../sections/Gallery';
 import Contact from '../sections/Contact';
+import Directions from '../sections/Directions';
 
-function LandingPage({ setScrollMethod }) {
+function LandingPage() {
     return (
         <>
             <Home />
             <About />
             <TodaySpecial />
             <Menu />
-            <ReservationSection setScrollMethod={setScrollMethod} />
+            <ReservationSection />
             <Team />
             <Statistics />
             <Gallery />
             <Contact />
+            <Directions />
         </>
     )
 }

@@ -11,27 +11,28 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Header from './components/Header';
 import BookingResponse from './screens/BookingResponse';
 import LandingPage from './screens/LandingPage';
+import Footer from './components/Footer';
 
 function App() {
-  const [methodToScrollIntoReservationSectView, setMethodToScrollIntoReservationSectView] = useState(null);
   const appTitle = `PLATO`;
-  window.scrollTo(
-    {
-      top: "0",
-      behaviour: "smooth"
-    }
-  )
   return (
     <>
       <BrowserRouter>
         <Header />
 
         <Routes>
-          <Route path="/" element={<LandingPage setScrollMethod={setMethodToScrollIntoReservationSectView} />} />
-          <Route path="/booking-res" element={<BookingResponse appTitle={appTitle} scrollMethod={methodToScrollIntoReservationSectView} />} />
+          <Route path="/" element={
+            <LandingPage />
+          } />
+          if (localStorage.getItem("Booking Credentials")) {
+            <Route path="/booking-res" element={
+              <BookingResponse appTitle={appTitle} />
+            } />
+          }
         </Routes>
+
+        <Footer appName={"Plato"} />
       </BrowserRouter>
-      {/* */}
     </>
   )
 }

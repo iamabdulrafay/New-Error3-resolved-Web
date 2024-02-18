@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useContext, useEffect, useRef, useState } from 'react';
 import ALIQUAM_TINCIDUNT_Dessert_Restaurant from '../assets/gallery-images/ALIQUAM TINCIDUNT Dessert, Restaurant.jpg';
 import ALIQUAM_TINCIDUNT_Dessert from '../assets/gallery-images/ALIQUAM TINCIDUNT Dessert.jpg';
 import ALIQUAM_TINCIDUNT_Restaurant from '../assets/gallery-images/ALIQUAM TINCIDUNT Restaurant.jpg';
@@ -9,6 +9,7 @@ import ALIQUAM_TINCIDUNT_Dinner3 from '../assets/gallery-images/ALIQUAM TINCIDUN
 import ALIQUAM_TINCIDUNT_Dinner4 from '../assets/gallery-images/ALIQUAM TINCIDUNT Dinner (4).jpg';
 import SectionHead from '../components/SectionHead';
 import ImageCard from '../components/galleryComponents/GalleryImageCard';
+import { RefContext } from '../contexts/RefContext';
 
 const sectionTitle = "Our Gallery"
 const sectionDescription = "Morbi in sem quis dui placerat ornare."
@@ -67,14 +68,19 @@ const albums = [
     "all", "dessert", "restaurant", "dinner"
 ]
 
+function handleAlbumClick(e) {
+    setAlbumState(e.target.innerText.toLowerCase());
+}
 function Gallery() {
     const [albumState, setAlbumState] = useState("all");
 
-    function handleAlbumClick(e) {
-        setAlbumState(e.target.innerText.toLowerCase());
-    }
+    const galleryRef = useRef(null);
+    const { setGalleryRef } = useContext(RefContext);
+    useEffect(() => {
+        setGalleryRef(galleryRef);
+    }, [])
     return (
-        <section className="text-gray-600 body-font">
+        <section ref={galleryRef} className="text-gray-600 body-font">
             <div className="container py-24 px-0 mx-0">
                 <SectionHead sectionTitle={sectionTitle} sectionDescription={sectionDescription} titleTextClr={"black"} />
                 <div className="flex justify-center items-center mx-auto border-0 overflow-hidden -mt-8 text-sm text-[#999999] font-extralight leading-relaxed tracking-tight font-rubic">

@@ -1,16 +1,13 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useContext, useEffect, useRef, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
+import { RefContext } from '../contexts/RefContext';
 
-function ReservationSection({ setScrollMethod }) {
+function ReservationSection() {
     const navigate = useNavigate();
     const reservationSectionRef = useRef(null);
-
+    const { setReservationRef } = useContext(RefContext);
     useEffect(() => {
-        setScrollMethod(
-            () => {
-                reservationSectionRef.current?.scrollIntoView();
-            }
-        );
+        setReservationRef(reservationSectionRef);
     }, [])
 
     const [bookingCredentials, setBookingCredentials] = useState(
@@ -42,14 +39,14 @@ function ReservationSection({ setScrollMethod }) {
     }
 
     return (
-        <section id='reservation-section' className="text-white body-font relative" ref={reservationSectionRef}>
+        <section ref={reservationSectionRef} id='reservation-section' className="text-white body-font relative">
             <div className="container px-5 py-24 mx-auto flex sm:flex-nowrap flex-wrap">
                 <form className="lg:w-1/3 md:w-1/2 bg-transparent flex flex-col md:mr-auto w-full md:py-8 mt-8 md:mt-0">
                     <h1 className="title-font sm:text-4xl !text-[2.5rem] mb-4 font-medium tracking-tight text-white font-playfairDisplay after:bg-[#f4b350] after:block after:mr-auto after:w-8 after:h-[3px] after:my-4">
                         Make Reservation
                     </h1>
                     <p className="leading-relaxed mb-5 text-[#ccc]">Booking a table has never been so easy with free & instsstant online restaurant reservations, booking now!!</p>
-                    <div className="relative mb-4">
+                    <div className="relative ">
                         <label htmlFor="guestName" className="leading-7 my-2 text-sm text-white">Guest Name</label>
                         <input value={bookingCredentials.guestName} onChange={onBookingFieldsChange} placeholder='Name' type="text" id="guestName" name="guestName" className="w-full bg-white border border-gray-300 outline-none text-[#999999] py-1 px-3 text-sm leading-8 transition-colors duration-200 ease-in-out" />
                     </div>

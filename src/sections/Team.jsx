@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext, useEffect, useRef } from 'react';
 import Carousel from 'react-bootstrap/Carousel';
 import jameEvans from '../assets/team-images/jame-evans.jpg';
 import kateHowston from '../assets/team-images/kate-howston.jpg';
@@ -6,6 +6,7 @@ import albertDupontel from '../assets/team-images/albert-dupontel.jpg';
 import michaelBrown from '../assets/team-images/michael-brown.jpg';
 import SectionHead from '../components/SectionHead';
 import TeamMember from '../components/teamComponents/TeamMember';
+import { RefContext } from '../contexts/RefContext';
 
 const sectionTitle = 'Meet Our Team';
 const sectionDescription = 'Sed arcu. Cras consequat.';
@@ -64,8 +65,13 @@ const teamSlide2 = [
 ]
 const teamSlider = [teamSlide1, teamSlide2];
 function Team() {
+    const teamRef = useRef(null);
+    const { setTeamRef } = useContext(RefContext);
+    useEffect(() => {
+        setTeamRef(teamRef);
+    }, [])
     return (
-        <section className="text-gray-600 body-font">
+        <section ref={teamRef} className="text-gray-600 body-font">
             <div className="container px-5 py-24 mx-auto">
 
                 <SectionHead sectionTitle={sectionTitle} sectionDescription={sectionDescription} titleTextClr={'black'} />
