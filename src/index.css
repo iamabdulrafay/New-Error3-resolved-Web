@@ -1,0 +1,46 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500&family=Playfair+Display:ital@0;1&family=Rubik&display=swap');
+
+/* Tailwind Css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+input {
+    font-family: 'Playfair Display', serif;
+}
+
+.font-dancing {
+    font-family: 'Dancing Script', cursive;
+}
+
+.font-rubic {
+    font-family: 'Rubik', sans-serif;
+}
+
+.font-playfairDisplay {
+    font-family: 'Playfair Display', serif;
+}
+
+.font-playfairDisplayItalic {
+    font-family: 'Dancing Script', cursive;
+}
+
+#today-special-section {
+    background: url('../src/assets/today-special-images/today-special-bg.jpg') center/cover no-repeat;
+}
+
+#reservation-section {
+    background: url('../src/assets/reservation-images/reservation-bg.jpg') center/cover no-repeat;
+}
+
+#bookingResponse-section {
+    background: url('../src/assets/reservation-images/reservation-bg.jpg') center/cover no-repeat;
+}
+
+#statistics-section {
+    background: url('../src/assets/statistics-images/ban2.jpg') center/cover no-repeat;
+}
+
+#contact-section {
+    background: url('../src/assets/contact-images/ban3.jpg') center/cover no-repeat;
+}
