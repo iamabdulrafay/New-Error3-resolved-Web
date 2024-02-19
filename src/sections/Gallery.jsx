@@ -67,10 +67,6 @@ const gallery = [
 const albums = [
     "all", "dessert", "restaurant", "dinner"
 ]
-
-function handleAlbumClick(e) {
-    setAlbumState(e.target.innerText.toLowerCase());
-}
 function Gallery() {
     const [albumState, setAlbumState] = useState("all");
 
@@ -79,6 +75,10 @@ function Gallery() {
     useEffect(() => {
         setGalleryRef(galleryRef);
     }, [])
+
+    function handleAlbumClick(e) {
+        setAlbumState(e.target.innerText.toLowerCase());
+    }
     return (
         <section ref={galleryRef} className="text-gray-600 body-font">
             <div className="container py-24 px-0 mx-0">

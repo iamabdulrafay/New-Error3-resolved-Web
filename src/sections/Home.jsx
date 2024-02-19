@@ -4,6 +4,7 @@ import slide1 from '../assets/home-images/slide1.jpg';
 import slide2 from '../assets/home-images/slide2.jpg';
 import slide3 from '../assets/home-images/slide3.jpg';
 import { RefContext } from '../contexts/RefContext';
+import { motion } from "framer-motion"
 
 const carouselItems = [
     {
@@ -41,7 +42,7 @@ function Home() {
         setIndex(selectedIndex);
     };
     return (
-        <section className="body-font" ref={homeRef}>
+        <section ref={homeRef} className="body-font">
             <Carousel activeIndex={index} onSelect={handleSelect}>
                 {
                     carouselItems.map(
@@ -49,10 +50,17 @@ function Home() {
                             return (
                                 <Carousel.Item key={i} style={Item.itemStyling}>
                                     <Carousel.Caption className="flex flex-col h-[75%] justify-center items-center">
-                                        <h1 className="text-6xl mb-12 py-10 border-y-[1.5px] border-y-white w-[50vw] font-dancing" >
+                                        <motion.h1
+                                            initial={{ opacity: 0, y: -300 }}
+                                            animate={{ opacity: 1, y: 1 }}
+                                            transition={{ duration: 1, delay: 1 }}
+                                            className="text-6xl mb-12 py-10 border-y-[1.5px] border-y-white w-[50vw] font-dancing" >
                                             {Item.slideLabel}
-                                        </h1>
-                                        <p className="font-medium text-lg font-rubic">{Item.slidePara}.</p>
+                                        </motion.h1>
+                                        <motion.p
+                                            initial={{ opacity: 0, y: 300 }}
+                                            animate={{ opacity: 1, y: 1 }}
+                                            transition={{ duration: 1, delay: 1 }} className="font-medium text-lg font-rubic">{Item.slidePara}.</motion.p>
                                     </Carousel.Caption>
                                     <img src={Item.img} alt={Item.imgAlt} />
                                 </Carousel.Item>
@@ -62,7 +70,7 @@ function Home() {
                     )
                 }
             </Carousel>
-        </section>
+        </section >
     );
 }
 
