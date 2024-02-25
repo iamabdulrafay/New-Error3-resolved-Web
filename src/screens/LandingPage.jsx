@@ -12,7 +12,7 @@ import Directions from '../sections/Directions';
 
 function LandingPage() {
     return (
-        <>
+        <main>
             <Home />
             <About />
             <TodaySpecial />
@@ -23,7 +23,7 @@ function LandingPage() {
             <Gallery />
             <Contact />
             <Directions />
-        </>
+        </main>
     )
 }
 
