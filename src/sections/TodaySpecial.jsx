@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useRef } from 'react';
 import TodaySpecialCardsRow1 from '../components/TodaySpecialComponents/TodaySpecialCardsRow1'
 import TodaySpecialCardsRow2 from '../components/TodaySpecialComponents/TodaySpecialCardsRow2'
-import SectionHead from '../components/SectionHead';
+import SectionHead from '../components/commons/SectionHead'
 import { RefContext } from '../contexts/RefContext';
 
 const sectionTitle = "Today's Special";

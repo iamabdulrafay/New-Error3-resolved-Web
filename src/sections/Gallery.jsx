@@ -7,7 +7,7 @@ import ALIQUAM_TINCIDUNT_Dinner from '../assets/gallery-images/ALIQUAM TINCIDUNT
 import ALIQUAM_TINCIDUNT_Dinner2 from '../assets/gallery-images/ALIQUAM TINCIDUNT Dinner (2).jpg';
 import ALIQUAM_TINCIDUNT_Dinner3 from '../assets/gallery-images/ALIQUAM TINCIDUNT Dinner (3).jpg';
 import ALIQUAM_TINCIDUNT_Dinner4 from '../assets/gallery-images/ALIQUAM TINCIDUNT Dinner (4).jpg';
-import SectionHead from '../components/SectionHead';
+import SectionHead from '../components/commons/SectionHead'
 import ImageCard from '../components/galleryComponents/GalleryImageCard';
 import { RefContext } from '../contexts/RefContext';
 

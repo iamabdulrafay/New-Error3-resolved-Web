@@ -4,7 +4,7 @@ import jameEvans from '../assets/team-images/jame-evans.jpg';
 import kateHowston from '../assets/team-images/kate-howston.jpg';
 import albertDupontel from '../assets/team-images/albert-dupontel.jpg';
 import michaelBrown from '../assets/team-images/michael-brown.jpg';
-import SectionHead from '../components/SectionHead';
+import SectionHead from '../components/commons/SectionHead'
 import TeamMember from '../components/teamComponents/TeamMember';
 import { RefContext } from '../contexts/RefContext';
 

@@ -1,7 +1,8 @@
 import React, { useContext, useEffect, useRef, useState } from 'react'
-import Logo from "../assets/logo.png";
-import { Link } from 'react-router-dom';
-import { RefContext } from '../contexts/RefContext';
+import Logo from "../../assets/logo.png";
+import { Link, useLocation } from 'react-router-dom';
+import { RefContext } from '../../contexts/RefContext';
+import { Container, Navbar } from 'react-bootstrap';
 
 const NavLinks = [
     {
@@ -47,6 +48,8 @@ const Header = () => {
     const headerRef = useRef(null);
     const navRef = useRef(null);
 
+    const location = useLocation();
+
     const {
         homeRef,
         aboutRef,
@@ -55,7 +58,8 @@ const Header = () => {
         reservationRef,
         menuRef,
         galleryRef,
-        todaySpecialRef
+        todaySpecialRef,
+        blogsRef
     } = useContext(RefContext);
 
     useEffect(() => {
@@ -104,6 +108,9 @@ const Header = () => {
                             case contactRef.current:
                                 setActiveSection("CONTACT");
                                 break;
+                            case blogsRef.current:
+                                setActiveSection("BLOG");
+                                break;
                             default:
                                 setActiveSection(null);
                                 break;
@@ -121,7 +128,8 @@ const Header = () => {
                 reservationRef?.current,
                 teamRef?.current,
                 galleryRef?.current,
-                contactRef?.current
+                contactRef?.current,
+                blogsRef?.current
             ];
 
             sections.forEach((section) => {
@@ -146,7 +154,8 @@ const Header = () => {
         reservationRef,
         teamRef,
         galleryRef,
-        contactRef
+        contactRef,
+        blogsRef
     ]);
 
     useEffect(() => {
@@ -157,7 +166,9 @@ const Header = () => {
                     link.classList.remove("after:opacity-[1]");
                 }
             })
-            const activeLink = navRef.current?.querySelector(`#${activeSection}`);
+            const activeLink = navRef.current?.querySelector(
+                `#${activeSection}`
+            );
             activeLink.className += " text-[#f4b350] after:opacity-[1]";
         }
     }, [activeSection])
@@ -196,8 +207,8 @@ const Header = () => {
         }
     }
     return (
-        <header ref={headerRef} className="text-gray-400 bg-[#222222] body-font">
-            <div className="container mx-auto flex flex-wrap px-5 w-full h-[10vh] flex-col md:flex-row items-center">
+        <Navbar expand="lg" ref={headerRef} className="text-gray-400 bg-[#222222] body-font">
+            <Container className="container mx-auto flex flex-wrap px-5 w-full h-[10vh] flex-col md:flex-row items-center">
                 <Link to="/" className="flex title-font font-medium text-white mb-4 md:!mb-0 cursor-pointer">
                     <img src={Logo} alt="PLATO^" />
                 </Link>
@@ -205,17 +216,24 @@ const Header = () => {
                     {
                         NavLinks.map((link, index) => {
                             return (
-                                <Link to={link.route} key={index} id={
-                                    link.label === "TODAY'S SPECIAL" ? "TODAYS-SPECIAL" : link.label
-                                } className="mr-2 px-3 h-full flex items-center justify-center text-[#999999] hover:!text-[#f4b350] text-xs font-medium cursor-pointer relative after:opacity-0 hover:after:opacity-[1] after:absolute after:top-0 after:bg-[#f4b350] after:h-1 after:w-[105%]" onClick={handleLinkClick}>
+                                <Link
+                                    key={index}
+                                    to={link.route}
+                                    id={
+                                        link.label === "TODAY'S SPECIAL" ?
+                                            "TODAYS-SPECIAL" :
+                                            link.label
+                                    }
+                                    className={`mr-2 px-3 h-full flex items-center justify-center text-[#999999] hover:!text-[#f4b350] text-xs font-medium cursor-pointer relative after:opacity-0 hover:after:opacity-[1] after:absolute after:top-0 after:bg-[#f4b350] after:h-1 after:w-[105%]`}
+                                    onClick={handleLinkClick}>
                                     {link.label}
                                 </Link>
                             )
                         })
                     }
                 </nav>
-            </div>
-        </header>
+            </Container>
+        </Navbar>
     )
 }
 

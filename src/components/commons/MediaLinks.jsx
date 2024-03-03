@@ -1,7 +1,7 @@
 import React from 'react';
-import facebook from '../assets/svgs/mediaSvgs/facebook.svg';
-import twitter from '../assets/svgs/mediaSvgs/twitter.svg';
-import messanger from '../assets/svgs/mediaSvgs/messanger.svg';
+import facebook from '../../assets/svgs/mediaSvgs/facebook.svg';
+import twitter from '../../assets/svgs/mediaSvgs/twitter.svg';
+import messanger from '../../assets/svgs/mediaSvgs/messanger.svg';
 
 const MediaLinks = ({ mediaNames }) => {
     const mediaLinks = mediaNames.map((mediaName) => ({

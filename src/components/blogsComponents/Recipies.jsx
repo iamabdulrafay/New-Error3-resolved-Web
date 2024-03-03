@@ -1,13 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import RecipieCard from './recipieCard';
 import InfiniteScroll from "react-infinite-scroll-component";
-import Loading from '../Loading';
-import ResultsNotFound from '../ResultsNotFound';
+import RecipieCard from './recipieCard';
+import Loading from '../commons/Loading';
+import ResultsNotFound from '../commons/ResultsNotFound';
 
 function Recipies({ recipies, recipeCategories, fetchRecipies, limit, refreshAll }) {
     const [hasMore, setHasMore] = useState(false);
     useEffect(() => {
-        console.log(limit);
         setHasMore(limit < 100);
     }, [recipies])
 
@@ -32,7 +31,7 @@ function Recipies({ recipies, recipeCategories, fetchRecipies, limit, refreshAll
                     recipeCategories.map(
                         (category, i) => {
                             return (
-                                <div key={i} className="h-full w-full flex flex-col justify-around items-between">
+                                <div key={i} className="h-full w-full flex flex-col justify-around">
                                     {
                                         i > 0 && <hr />
                                     }
@@ -43,7 +42,7 @@ function Recipies({ recipies, recipeCategories, fetchRecipies, limit, refreshAll
                                                 recipe => recipe.cuisineType[0] === category
                                             ).map(
                                                 (recipe, i) => {
-                                                    return <RecipieCard key={i} recipe={recipe} />
+                                                    return <RecipieCard key={i} recipe={recipe} recommended={false} />
                                                 }
                                             )
                                         }

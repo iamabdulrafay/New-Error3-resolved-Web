@@ -1,5 +1,5 @@
 import React from 'react'
-import BrightMediaLinks from '../BrightMediaLinks';
+import BrightMediaLinks from '../commons/BrightMediaLinks';
 
 function ContactInfo() {
     return (

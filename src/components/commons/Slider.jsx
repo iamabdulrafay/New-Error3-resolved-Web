@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import Carousel from 'react-bootstrap/Carousel';
-import slide1 from '../assets/slider-images/slide1.jpg';
-import slide2 from '../assets/slider-images/slide2.jpg';
-import slide3 from '../assets/slider-images/slide3.jpg';
+import slide1 from '../../assets/slider-images/slide1.jpg';
+import slide2 from '../../assets/slider-images/slide2.jpg';
+import slide3 from '../../assets/slider-images/slide3.jpg';
 import { motion } from "framer-motion"
 
 const carouselItems = [

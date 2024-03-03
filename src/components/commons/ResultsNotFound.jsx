@@ -2,7 +2,7 @@ import React from 'react'
 
 function ResultsNotFound({ message, refreshAll }) {
     return (
-        <div className="flex flex-col items-center justify-center h-full">
+        <div className={`flex flex-col items-center justify-center ${message === "No More Results!" ? "h-full mt-20" : "h-screen"}`}>
             <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="h-20 w-20 text-gray-400 mb-4"

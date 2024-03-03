@@ -1,11 +1,11 @@
 import React from 'react';
 
-import facebook from '../assets/svgs/bright-media-svgs/facebook-bright.svg';
-import twitter from '../assets/svgs/bright-media-svgs/twitter-bright.svg';
-import linkedin from '../assets/svgs/bright-media-svgs/linkedin-bright.svg';
-import google from '../assets/svgs/bright-media-svgs/google-plus-bright.svg';
-import dribble from '../assets/svgs/bright-media-svgs/dribble-bright.svg';
-import pinterest from '../assets/svgs/bright-media-svgs/pinterest-bright.svg';
+import facebook from '../../assets/svgs/bright-media-svgs/facebook-bright.svg';
+import twitter from '../../assets/svgs/bright-media-svgs/twitter-bright.svg';
+import linkedin from '../../assets/svgs/bright-media-svgs/linkedin-bright.svg';
+import google from '../../assets/svgs/bright-media-svgs/google-plus-bright.svg';
+import dribble from '../../assets/svgs/bright-media-svgs/dribble-bright.svg';
+import pinterest from '../../assets/svgs/bright-media-svgs/pinterest-bright.svg';
 
 const MediaLinks = ({ mediaNames }) => {
     const mediaLinks = mediaNames.map((mediaName) => ({

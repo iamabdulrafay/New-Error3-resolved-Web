@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useRef } from 'react'
 import AboutHistoryComponent from '../components/aboutComponents/AboutHistoryComponent'
 import AboutResturansComponent from '../components/aboutComponents/AboutResturansComponent'
-import SectionHead from '../components/SectionHead'
+import SectionHead from '../components/commons/SectionHead'
 import { RefContext } from '../contexts/RefContext';
 
 const sectionTitle = "Discover Our Story";

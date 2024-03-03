@@ -1,5 +1,5 @@
 import React from 'react';
-import MediaLinks from '../MediaLinks'
+import MediaLinks from '..//commons/MediaLinks'
 
 function TeamMember({ teamMember }) {
     return (

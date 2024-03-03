@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useRef, useState } from 'react';
 import { RefContext } from '../contexts/RefContext';
-import Slider from '../components/Slider';
+import Slider from '../components/commons/Slider';
 
 function Home() {
     const homeRef = useRef(null);

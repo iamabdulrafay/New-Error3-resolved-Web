@@ -1,12 +1,12 @@
 // React related imports 
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useRef, useState } from 'react';
 
 // Components 
-import Slider from '../components/Slider';
+import Slider from '../components/commons/Slider';
 import FilterAndSearchBar from '../components/blogsComponents/FilterAndSearchBar';
 import Recipies from '../components/blogsComponents/Recipies';
-import Loading from '../components/Loading';
-import ResultsNotFound from '../components/ResultsNotFound';
+import Loading from '../components/commons/Loading';
+import ResultsNotFound from '../components/commons/ResultsNotFound';
 
 // Custom Hooks/Utile Functions 
 import { useFetchRecipies } from '../utils/useFetchRecipies';
@@ -18,6 +18,7 @@ import { useExtractQueryFilterCategories } from '../utils/useExtractQueryFilterC
 import { useDispatch, useSelector } from 'react-redux';
 import { setQueryFilterCategories } from '../features/queryFilterCategoriesSlice';
 import { setCuisineType, setDishType } from '../features/queryFilterSlice';
+import { RefContext } from '../contexts/RefContext';
 
 function Blogs() {
     const defaultPageSize = 0;
@@ -37,11 +38,16 @@ function Blogs() {
     const { cuisineType, dishType } = useSelector((state) => state.queryFilter);
     const dispatch = useDispatch();
 
+    const { setBlogsRef } = useContext(RefContext);
+
+    const blogsRef = useRef(null);
+
     // useEffects
-    // Fetch Recipies On First Render
+    // Fetch Recipies On First Render and set Blogs reference
     useEffect(() => {
         setIsLoading(true);
         fetchRecipies();
+        setBlogsRef(blogsRef);
     }, []);
 
     // Fetch Recipies On Refreshing
@@ -194,7 +200,7 @@ function Blogs() {
         refreshAll()
     }
     return (
-        <main className='w-full flex flex-col'>
+        <main ref={blogsRef} className='w-full flex flex-col'>
             <section id='blogs' className="text-gray-600 body-font">
                 <Slider />
                 {

@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useRef } from 'react';
-import SectionHead from '../components/SectionHead';
+import SectionHead from '../components/commons/SectionHead'
 import MenuListItems from '../components/menuComponents/MenuListItems';
 import MenuVariants from '../components/menuComponents/MenuVariants';
 import { RefContext } from '../contexts/RefContext';
