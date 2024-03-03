@@ -6,6 +6,7 @@ import {
   Routes,
   Route,
 } from "react-router-dom";
+import { useState } from 'react';
 
 import Header from './components/commons/Header';
 import BookingResponse from './screens/BookingResponse';
@@ -16,38 +17,28 @@ import RecipeDetails from './screens/RecipeDetails';
 
 function App() {
   const appTitle = `PLATO`;
-
   return (
     <>
       <BrowserRouter>
         <Header />
 
         <Routes>
+          <Route path="/" element={<LandingPage />} />
+          <Route path="/blogs" element={<Blogs />} />
+          <Route path="/recipe/:id" element={<RecipeDetails />} />
           <Route
-            path="/"
-            element={<LandingPage />}
-          />
-          if (localStorage.getItem("Booking Credentials")) {
-            <Route
-              path="/booking-res"
-              element={
-                <BookingResponse appTitle={appTitle} />
-              }
-            />
-          }
-          <Route
-            path="/blogs"
-            element={<Blogs />}
-          />
-          <Route
-            path="/recipe/:id"
-            element={<RecipeDetails />}
+            path="/seats"
+            element={
+              <BookingResponse
+                appTitle={appTitle}
+              />
+            }
           />
         </Routes>
         <Footer appName={"Plato"} />
       </BrowserRouter>
     </>
-  )
+  );
 }
 
-export default App
+export default App;

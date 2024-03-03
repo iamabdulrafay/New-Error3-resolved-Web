@@ -2,7 +2,6 @@ import React, { useContext, useEffect, useRef, useState } from 'react'
 import Logo from "../../assets/logo.png";
 import { Link, useLocation } from 'react-router-dom';
 import { RefContext } from '../../contexts/RefContext';
-import { Container, Navbar } from 'react-bootstrap';
 
 const NavLinks = [
     {
@@ -36,6 +35,10 @@ const NavLinks = [
     {
         label: "CONTACT",
         route: '/'
+    },
+    {
+        label: "SEATS",
+        route: '/seats'
     },
     {
         label: "BLOG",
@@ -207,8 +210,8 @@ const Header = () => {
         }
     }
     return (
-        <Navbar expand="lg" ref={headerRef} className="text-gray-400 bg-[#222222] body-font">
-            <Container className="container mx-auto flex flex-wrap px-5 w-full h-[10vh] flex-col md:flex-row items-center">
+        <header ref={headerRef} className="text-gray-400 bg-[#222222] body-font">
+            <div className="container mx-auto flex flex-wrap px-5 w-full h-[10vh] flex-col md:flex-row items-center">
                 <Link to="/" className="flex title-font font-medium text-white mb-4 md:!mb-0 cursor-pointer">
                     <img src={Logo} alt="PLATO^" />
                 </Link>
@@ -232,8 +235,8 @@ const Header = () => {
                         })
                     }
                 </nav>
-            </Container>
-        </Navbar>
+            </div>
+        </header>
     )
 }
 
